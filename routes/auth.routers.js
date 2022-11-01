@@ -4,12 +4,15 @@ const router = express.Router()
 const bcrypt = require('bcryptjs')
 
 
-router.get("/signup", (req, res, next) => {
-  res.render("signup");
+router.get('/signup', (req, res, next) => {
+  res.render('auth/signup');
 });
 
 router.post('/signup', async(req,res) => {
   try {
+
+    const salt = bcrypt.genSaltSync(10)
+    const hashedPassword = bcrypt.hashSync(req.body.password, salt)
 
     await User.create({
       username: req.body.username,
@@ -24,8 +27,8 @@ router.post('/signup', async(req,res) => {
   }
 })
 
-router.get("/login", (req, res, next) => {
-  res.render("login");
+router.get('/login', (req, res, next) => {
+  res.render('auth/login');
 });
 
 module.exports = router;
