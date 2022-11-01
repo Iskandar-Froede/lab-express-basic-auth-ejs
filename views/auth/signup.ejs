@@ -1,21 +1,14 @@
-<h1>SIGNUP</h1>
+<h1>Signup</h1>
 
 <form method="POST" action="/auth/signup">
 
   <label>Username:<input type="text" name="username" required /></label>
 
-  <label> Email:<input <% if (typeof errorMessage !== "undefined") { %>  
-  <% } %> type="email" name="email" required />
-  </label>
-
   <label>Password:<input type="password" name="password" required /></label>
 
-  <button type="submit">Create account</button>
-
-
-<% if (typeof errorMessage !== "undefined") { %>
-    <p><%= errorMessage %></p>
-    <% } %> 
+  <button type="submit">sign up</button>
 
 </form>
+
+
 
